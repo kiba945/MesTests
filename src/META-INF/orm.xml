@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entity-mappings version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_1_0.xsd">
+
+	<description>The minimal mappings for a persistent entity in XML.
+	</description>
+
+	<entity name="Article" class="org.afpaformation.g59.mesessais.donnees.Article"
+		access="FIELD">
+
+		<attributes>
+
+			
+			<id name="code" />
+			<id name="designation" />
+			<id name="prix" />
+
+		</attributes>
+
+	</entity>
+
+</entity-mappings>

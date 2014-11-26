@@ -7,33 +7,33 @@ import java.util.StringTokenizer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 
-@Entity
+//@Entity
 public class Article extends Entite{
 
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-	@Id
-	private int code;
+//	@Id
+	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
 
 
 //	@GeneratedValue( strategy = GenerationType.AUTO)	//Auto incremente l'ID dans la table
 	public int getCode() {
 		return code;
+//		return super.getCode();
 	}
 	public void setCode(int code) {
-		this.code = code;
+		this.code=code;
+//		super.setCode(code);
 	}
 
-	@Column( name = "designation")
+//	@Column( name = "designation")
 	private String designation;
 	
-	@Column( name = "prix")
+//	@Column( name = "prix")
 	private float prix;
 
 	/************************************/

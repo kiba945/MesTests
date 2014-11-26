@@ -35,24 +35,23 @@ public class MonJPA {
 
 		em.persist(article);
 		
-		em.merge(article);
-//		em.flush();	//Envoi sur la Base de donnée
-		et.commit();	//Validation de l'envoi
+//		em.merge(article);
+
 
 		/**********************************************************/
-		String rep = ES.saisie("Voulez-vous supprimer l'article? (O/N)");
-		
-		if (rep.equals("o") || rep.equals("O")){
-			
-			Article article2 = CreerArticle();
-			
-			em.merge(article2);
-			
-			em.remove(article);
-//			em.flush();	//Envoi sur la Base de donnée
-			et.commit();	//Validation de l'envoi
-			
-		}
+//		String rep = ES.saisie("Voulez-vous supprimer l'article? (O/N)");
+//		
+//		if (rep.equals("o") || rep.equals("O")){
+//			
+//			Article article2 = CreerArticle();
+//			
+//			em.merge(article2);
+//			
+//			em.remove(article);
+////			em.flush();	//Envoi sur la Base de donnée
+////			et.commit();	//Validation de l'envoi
+//			
+//		}
 		/**********************************************************/
 		
 //		String MySelect;
@@ -65,8 +64,8 @@ public class MonJPA {
 //		em.createQuery(MySelect);	
 		
 		
-//		em.flush();	//Envoi sur la Base de donnée
-//		et.commit();	//Validation de l'envoi
+		em.flush();	//Envoi sur la Base de donnée
+		et.commit();	//Validation de l'envoi
 		
 		
 		em.close();

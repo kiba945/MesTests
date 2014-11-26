@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Entite {
 	
 	/****************************************/
@@ -21,28 +21,23 @@ public class Entite {
 	/*** 1er constructeur ***/
 	public Entite(){}
 	/*** 2ème constructeur avec des paramètres ***/
-	//public Entite(int code, String nom){
 	public Entite(int code){
 		this.code=code;
-		//this.nom=nom;
 	}
 	
 	/************************************/
 	/*		Déclaration des GETTEURS	*/
 	/************************************/
 	public int getCode(){return code;}
-	//public String getNom(){return nom;}
 	
 	/************************************/
 	/*		Déclaration des SETTEURS	*/
 	/************************************/
 	public void setCode(int code){this.code=code;}
-	//public void setNom(String nom){this.nom=nom;}	
 	
 	/************************************/
 	/*		Déclaration des méthodes	*/
 	/************************************/
 	/*** Méthode toString() retourne une chaîne de caractère  ***/
-	//public String toString(){return ("Code: "+code+" Nom: "+nom);}	
 	public String toString(){return ("Code: "+code);}	
 }
