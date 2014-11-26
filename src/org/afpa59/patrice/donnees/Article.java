@@ -12,24 +12,24 @@ public class Article extends Entite{
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-//	@Id
+	//	@Id
 	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
 
 
-//	@GeneratedValue( strategy = GenerationType.AUTO)	//Auto incremente l'ID dans la table
+	//	@GeneratedValue( strategy = GenerationType.AUTO)	//Auto incremente l'ID dans la table
 	public int getCode() {
 		return code;
-//		return super.getCode();
+		//		return super.getCode();
 	}
 	public void setCode(int code) {
 		this.code=code;
-//		super.setCode(code);
+		//		super.setCode(code);
 	}
 
-//	@Column( name = "designation")
+	//	@Column( name = "designation")
 	private String designation;
-	
-//	@Column( name = "prix")
+
+	//	@Column( name = "prix")
 	private float prix;
 
 	/************************************/
@@ -39,7 +39,7 @@ public class Article extends Entite{
 	 * 
 	 */
 	public Article(){}
-	
+
 	/** 2ème constructeur avec des paramètres
 	 * 
 	 * @param Integer code
@@ -80,7 +80,11 @@ public class Article extends Entite{
 	/* (non-Javadoc)
 	 * @see org.afpaformation.g59.mesessais.donnees.Entite#toString()
 	 */
-	public String toString(){return (super.toString()+" Designation: "+designation+
+
+//	public String toString(){return (super.toString()+" Designation: "+designation+
+//			" Prix: "+prix);}
+
+	public String toString(){return ("Code: "+code+" Designation: "+designation+
 			" Prix: "+prix);}
 
 	/**

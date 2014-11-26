@@ -2,6 +2,10 @@ package org.afpa59.patrice.iu;
 
 
 import org.afpa59.patrice.services.MonJPA01;
+import org.afpa59.patrice.services.MonJPA02;
+import org.afpa59.patrice.services.MonJPA03;
+import org.afpa59.patrice.services.MonJPA04;
+import org.afpa59.patrice.services.MonJPA05;
 import org.afpa59.patrice.utils.ES;
 
 public class IuJPA extends IuBase{
@@ -14,10 +18,10 @@ public class IuJPA extends IuBase{
 			rep = choix();
 			switch(rep){
 			case 1:  new MonJPA01().test(); break;
-			case 2:  break;
-			case 3:  break;
-			case 4:  break;
-			case 5:  break;
+			case 2:  new MonJPA02().test(); break;
+			case 3:  new MonJPA03().test(); break;
+			case 4:  new MonJPA04().test(); break;
+			case 5:  new MonJPA05().test(); break;
 			case 6:  break;
 			case 7:  break;
 			case 8:  break;
@@ -38,7 +42,7 @@ public class IuJPA extends IuBase{
 				"02.  JPA merge \n"+
 				"03.  JPA remove \n"+
 				"04.  JPA find \n"+
-				"05.  \n"+
+				"05.  JPA SELECT \n"+
 				"06.  \n"+
 				"07.  \n"+
 				"08.  \n"+

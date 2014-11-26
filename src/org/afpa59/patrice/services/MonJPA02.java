@@ -8,16 +8,13 @@ import javax.persistence.Persistence;
 import org.afpa59.patrice.donnees.Article;
 import org.afpa59.patrice.utils.ES;
 
-public class MonJPA01 {
-	
+public class MonJPA02 {
+
 	public void test() {
-		// TODO Auto-generated method stub
 		
 		
 	    // Injection du manager, qui s'occupe de la connexion avec la BDD
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Article");
-		
-		
 		
 		EntityManager em = emf.createEntityManager();
 				
@@ -32,9 +29,8 @@ public class MonJPA01 {
 		+ article.toString()
 		+ "\n     ****** a bien été crée ******");
 		
+		em.merge(article);
 
-		em.persist(article);
-		
 
 		/**********************************************************/
 //		String rep = ES.saisie("Voulez-vous supprimer l'article? (O/N)");
@@ -89,4 +85,6 @@ public class MonJPA01 {
 		
 		return article;
 	}
+
+
 }

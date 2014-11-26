@@ -1,9 +1,5 @@
 package org.afpa59.patrice.donnees;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 //@Entity
 public class Entite {
