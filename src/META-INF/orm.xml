@@ -11,11 +11,21 @@
 		access="FIELD">
 
 		<attributes>
+			<id name="code">
+				<column name="code" />
+				
+				<!-- strategy possible AUTO, IDENTITY, SEQUENCE -->
+				<generated-value strategy="SEQUENCE" />
+				
+			</id>
 
-			<id name="code" />
-			<basic name="designation" />
-			<basic name="prix" />
-
+			<basic name="designation">
+				<column name="designation" />
+			</basic>
+			
+			<basic name="prix">
+				<column name="prix" />
+			</basic>
 		</attributes>
 
 	</entity>

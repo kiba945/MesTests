@@ -1,47 +1,45 @@
 package org.afpa59.patrice.donnees;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 
 
-//@Entity
-public class Entite {
+public class LigneDeCommande extends Entite{
 	
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-//	@Id
-//	@GeneratedValue( strategy = GenerationType.AUTO)
-	private int code;
+	private int quantite;
 	
 	/************************************/
 	/*	Déclaration des constructeurs	*/
 	/************************************/
+	
+	
 	/*** 1er constructeur ***/
-	public Entite(){}
+	public LigneDeCommande(){}
+	
+	
 	/*** 2ème constructeur avec des paramètres ***/
-	public Entite(int code){
-		this.code=code;
+	public LigneDeCommande(int code, int quantite){
+		super(code);
+		this.quantite=quantite;
 	}
+	
 	
 	/************************************/
 	/*		Déclaration des GETTEURS	*/
 	/************************************/
-	public int getCode(){return code;}
+	public int getQuantite(){return quantite;}
 	
 	/************************************/
 	/*		Déclaration des SETTEURS	*/
 	/************************************/
-	public void setCode(int code){this.code=code;}
+	public void setQuantite(int quantite){this.quantite=quantite;}
 	
 	/************************************/
-	/*		Déclaration des méthodes	*/
+	/*		Décalaration des méthodes	*/
 	/************************************/
+	
 	/*** Méthode toString() retourne une chaîne de caractère  ***/
-	public String toString(){return ("Code: "+code);}
+	public String toString(){return (super.toString()+" Quantité: "+quantite);}
 	
-	public void writeData(PrintWriter out) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}	
 }

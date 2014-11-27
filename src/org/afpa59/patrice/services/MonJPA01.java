@@ -75,7 +75,7 @@ public class MonJPA01 {
 	 */
 	private Article CreerArticle() {
 		
-		int code = ES.saisie("Votre code Article:", 1, Integer.MAX_VALUE);
+//		int code = ES.saisie("Votre code Article:", 1, Integer.MAX_VALUE);
 		String designation = ES.saisie("Votre désignation Article:");
 		Float prix = ES.saisie("Votre prix Article", 1, Float.MAX_VALUE);
 		
@@ -83,7 +83,7 @@ public class MonJPA01 {
 		
 		article = new Article();
 		
-		article.setCode(code);
+//		article.setCode(code);
 		article.setDesignation(designation);
 		article.setPrix(prix);
 		

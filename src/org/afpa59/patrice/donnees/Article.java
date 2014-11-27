@@ -12,11 +12,12 @@ public class Article extends Entite{
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-	//	@Id
+//	@Id
+//	@GeneratedValue( strategy = GenerationType.IDENTITY)
 	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
 
 
-	//	@GeneratedValue( strategy = GenerationType.AUTO)	//Auto incremente l'ID dans la table
+		//Auto incremente l'ID dans la table
 	public int getCode() {
 		return code;
 		//		return super.getCode();
@@ -48,6 +49,16 @@ public class Article extends Entite{
 	 */
 	public Article(int code, String designation, float prix){
 		super(code);
+		this.designation=designation;
+		this.prix=prix;
+	}
+	
+	/** 3ème constructeur avec des paramètres
+	 * 
+	 * @param String designation
+	 * @param Float prix
+	 */
+	public Article(String designation, float prix){
 		this.designation=designation;
 		this.prix=prix;
 	}
