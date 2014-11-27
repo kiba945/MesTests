@@ -12,7 +12,7 @@ import javax.persistence.Query;
 import org.afpa59.patrice.donnees.Article;
 import org.afpa59.patrice.utils.ES;
 
-public class MonJPA05 {
+public class MonJPA07 {
 
 	public void test() {
 		// TODO Auto-generated method stub
@@ -33,13 +33,12 @@ public class MonJPA05 {
 		
 		Query maRequete = em.createQuery(mySelect);
 		
-		
-		List results = maRequete.getResultList();
-		Iterator it = results.iterator();
+		List<Article> results = maRequete.getResultList();
+		Iterator<Article> it = results.iterator();
 		
 		String st = "";
 		while (it.hasNext()){
-			Article a = (Article) it.next();
+			Article a = it.next();
 			st = st + "****" + a + "\n";
 		}
 		

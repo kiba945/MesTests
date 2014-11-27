@@ -6,7 +6,7 @@
 
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 
-		<class>org.afpa59.patrice.donnees.Entite</class>
+<!-- 		<class>org.afpa59.patrice.donnees.Entite</class> -->
 		<class>org.afpa59.patrice.donnees.Article</class>
 
 		<properties>

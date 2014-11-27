@@ -17,8 +17,6 @@ public class MonJPA01 {
 	    // Injection du manager, qui s'occupe de la connexion avec la BDD
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Article");
 		
-		
-		
 		EntityManager em = emf.createEntityManager();
 				
 		EntityTransaction et = em.getTransaction();
@@ -26,47 +24,17 @@ public class MonJPA01 {
 		et.begin();
 		
 		Article article = CreerArticle();	
+			
+		em.persist(article);
+	
+		em.flush();	//Envoi sur la Base de donnée
+		et.commit();	//Validation de l'envoi
 		
+		em.close();
 		
 		ES.affiche("     ****** Votre Article ******\n"
 		+ article.toString()
 		+ "\n     ****** a bien été crée ******");
-		
-
-		em.persist(article);
-		
-
-		/**********************************************************/
-//		String rep = ES.saisie("Voulez-vous supprimer l'article? (O/N)");
-//		
-//		if (rep.equals("o") || rep.equals("O")){
-//			
-//			Article article2 = CreerArticle();
-//			
-//			em.merge(article2);
-//			
-//			em.remove(article);
-////			em.flush();	//Envoi sur la Base de donnée
-////			et.commit();	//Validation de l'envoi
-//			
-//		}
-		/**********************************************************/
-		
-//		String MySelect;
-//		
-//		MySelect = "SELECT "
-//				+ "* "
-//				+ "FROM "
-//				+ "Article;";
-//		
-//		em.createQuery(MySelect);	
-		
-		
-		em.flush();	//Envoi sur la Base de donnée
-		et.commit();	//Validation de l'envoi
-		
-		
-		em.close();
 		
 	}
 

@@ -15,7 +15,7 @@
 				<column name="code" />
 				
 				<!-- strategy possible AUTO, IDENTITY, SEQUENCE -->
-				<generated-value strategy="SEQUENCE" />
+				<generated-value strategy="IDENTITY" />
 				
 			</id>
 

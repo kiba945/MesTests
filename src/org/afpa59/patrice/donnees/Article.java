@@ -5,19 +5,24 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-//@Entity
+
+@Entity
 public class Article extends Entite{
 
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-//	@Id
-//	@GeneratedValue( strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY)	//Auto incremente l'ID dans la table
 	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
 
-
-		//Auto incremente l'ID dans la table
+		
 	public int getCode() {
 		return code;
 		//		return super.getCode();
@@ -27,10 +32,10 @@ public class Article extends Entite{
 		//		super.setCode(code);
 	}
 
-	//	@Column( name = "designation")
+	@Column( name = "designation")
 	private String designation;
 
-	//	@Column( name = "prix")
+	@Column( name = "prix")
 	private float prix;
 
 	/************************************/
@@ -62,6 +67,14 @@ public class Article extends Entite{
 		this.designation=designation;
 		this.prix=prix;
 	}
+	
+	/** 4ème constructeur avec des paramètres
+	 * 
+	 * @param Integer code
+	 */
+	public Article(int code){
+		this.code=code;
+	}	
 
 	/************************************/
 	/*		Déclaration des GETTEURS	*/
