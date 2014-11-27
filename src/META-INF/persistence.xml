@@ -11,7 +11,7 @@
 		<class>org.afpa59.patrice.donnees.Article</class>
 
 		<class>org.afpa59.patrice.donnees.Client</class>
-		<class>org.afpa59.patrice.donnees.Commande</class>
+<!-- 		<class>org.afpa59.patrice.donnees.Commande</class> -->
 <!-- 		<class>org.afpa59.patrice.donnees.LigneDeCommande</class> -->
 
 		<properties>
