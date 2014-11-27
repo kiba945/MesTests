@@ -1,4 +1,4 @@
-package org.afpa59.patrice.iu;
+package org.afpa59.patrice.services;
 
 public class MonJPA05 {
 

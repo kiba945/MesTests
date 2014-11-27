@@ -7,30 +7,19 @@ import java.util.StringTokenizer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity
+@Table(name= "Article")
 public class Article extends Entite{
 
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY)	//Auto incremente l'ID dans la table
-	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
-
-		
-	public int getCode() {
-		return code;
-		//		return super.getCode();
-	}
-	public void setCode(int code) {
-		this.code=code;
-		//		super.setCode(code);
-	}
+//	@Id
+//	@GeneratedValue( strategy = GenerationType.IDENTITY)	//Auto incremente l'ID dans la table
+//	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
 
 	@Column( name = "designation")
 	private String designation;
@@ -68,13 +57,6 @@ public class Article extends Entite{
 		this.prix=prix;
 	}
 	
-	/** 4ème constructeur avec des paramètres
-	 * 
-	 * @param Integer code
-	 */
-	public Article(int code){
-		this.code=code;
-	}	
 
 	/************************************/
 	/*		Déclaration des GETTEURS	*/
@@ -101,14 +83,7 @@ public class Article extends Entite{
 	/*		Déclaration des méthodes	*/
 	/************************************/
 	/*** Méthode toString() retourne une chaîne de caractère  ***/
-	/* (non-Javadoc)
-	 * @see org.afpaformation.g59.mesessais.donnees.Entite#toString()
-	 */
-
-//	public String toString(){return (super.toString()+" Designation: "+designation+
-//			" Prix: "+prix);}
-
-	public String toString(){return ("Code: "+code+" Designation: "+designation+
+	public String toString(){return (super.toString()+" Designation: "+designation+
 			" Prix: "+prix);}
 
 	/**
@@ -134,18 +109,6 @@ public class Article extends Entite{
 		prix = Float.parseFloat(t.nextToken());
 	}	
 
-	//	@Override
-	//	public int hashCode(){
-	//		return getCode();
-	//	}
-	//
-	//	@Override
-	//	public boolean equals(Object o){
-	//		if(getCode() == ((Article)o).getCode()){
-	//			return true;
-	//		}
-	//		return false;
-	//	}
 
 	@Override
 	public int hashCode() {

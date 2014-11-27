@@ -15,7 +15,7 @@ public class MonJPA01 {
 		
 		
 	    // Injection du manager, qui s'occupe de la connexion avec la BDD
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Article");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Test_persistence");
 		
 		EntityManager em = emf.createEntityManager();
 				
@@ -23,7 +23,7 @@ public class MonJPA01 {
 		
 		et.begin();
 		
-		Article article = CreerArticle();	
+		Article article = creer();	
 			
 		em.persist(article);
 	
@@ -41,7 +41,7 @@ public class MonJPA01 {
 	/**
 	 * @return
 	 */
-	private Article CreerArticle() {
+	private Article creer() {
 		
 //		int code = ES.saisie("Votre code Article:", 1, Integer.MAX_VALUE);
 		String designation = ES.saisie("Votre désignation Article:");

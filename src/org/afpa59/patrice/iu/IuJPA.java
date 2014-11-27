@@ -6,6 +6,7 @@ import org.afpa59.patrice.services.MonJPA01;
 import org.afpa59.patrice.services.MonJPA02;
 import org.afpa59.patrice.services.MonJPA03;
 import org.afpa59.patrice.services.MonJPA04;
+import org.afpa59.patrice.services.MonJPA05;
 import org.afpa59.patrice.services.MonJPA06;
 import org.afpa59.patrice.services.MonJPA07;
 import org.afpa59.patrice.services.MonJPA08;

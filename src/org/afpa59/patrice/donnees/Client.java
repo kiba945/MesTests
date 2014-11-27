@@ -4,17 +4,31 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name ="Client")
 public class Client extends Entite{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
+//	@Id
+//	@GeneratedValue( strategy = GenerationType.IDENTITY)	//Auto incremente l'ID dans la table
+//	@Column(name = "code")
+//	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
+//	
+
+	@Column(name = "nom")
 	private String nom;
+	
+	@Column(name = "prenom")
 	private String prenom;
+	
+	@Column(name = "adresse")
 	private String adresse;
 	
 	/************************************/

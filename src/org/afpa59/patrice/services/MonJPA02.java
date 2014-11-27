@@ -13,7 +13,7 @@ public class MonJPA02 {
 	public void test() {
 
 		// Injection du manager, qui s'occupe de la connexion avec la BDD
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Article");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Test_persistence");
 
 		EntityManager em = emf.createEntityManager();
 

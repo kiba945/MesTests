@@ -7,27 +7,27 @@
 	<description>The minimal mappings for a persistent entity in XML.
 	</description>
 
-	<entity name="Article" class="org.afpa59.patrice.donnees.Article"
-		access="FIELD">
+<!-- 	<entity name="Article" class="org.afpa59.patrice.donnees.Article" -->
+<!-- 		access="FIELD"> -->
 
-		<attributes>
-			<id name="code">
-				<column name="code" />
+<!-- 		<attributes> -->
+<!-- 			<id name="code"> -->
+<!-- 				<column name="code" /> -->
 				
-				<!-- strategy possible AUTO, IDENTITY, SEQUENCE -->
-				<generated-value strategy="IDENTITY" />
+<!-- 				strategy possible AUTO, IDENTITY, SEQUENCE -->
+<!-- 				<generated-value strategy="IDENTITY" /> -->
 				
-			</id>
+<!-- 			</id> -->
 
-			<basic name="designation">
-				<column name="designation" />
-			</basic>
+<!-- 			<basic name="designation"> -->
+<!-- 				<column name="designation" /> -->
+<!-- 			</basic> -->
 			
-			<basic name="prix">
-				<column name="prix" />
-			</basic>
-		</attributes>
+<!-- 			<basic name="prix"> -->
+<!-- 				<column name="prix" /> -->
+<!-- 			</basic> -->
+<!-- 		</attributes> -->
 
-	</entity>
+<!-- 	</entity> -->
 
 </entity-mappings>
