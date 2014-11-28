@@ -8,6 +8,9 @@ import org.afpa59.patrice.services.MonJPA05;
 import org.afpa59.patrice.services.MonJPA06;
 import org.afpa59.patrice.services.MonJPA07;
 import org.afpa59.patrice.services.MonJPA08;
+import org.afpa59.patrice.services.MonJPA09;
+import org.afpa59.patrice.services.MonJPA10;
+import org.afpa59.patrice.services.MonJPA11;
 import org.afpa59.patrice.utils.ES;
 
 public class IuJPA extends IuBase{
@@ -27,9 +30,9 @@ public class IuJPA extends IuBase{
 			case 6:  new MonJPA06().test(); break;
 			case 7:  new MonJPA07().test(); break;
 			case 8:  new MonJPA08().test(); break;
-			case 9:  break;
-			case 10: break;
-			case 11:  			break;
+			case 9:  new MonJPA09().test(); break;
+			case 10: new MonJPA10().test(); break;
+			case 11: new MonJPA11().test();	break;
 			case 0: break;
 			//default:System.out.println("\n CHOIX INEXISTANT!!!\n");
 			}
@@ -50,7 +53,7 @@ public class IuJPA extends IuBase{
 				"08.  JPA @ManyToOne\n"+
 				"09.  JPA @OneToMany\n"+
 				"10.  JPA @ManyToMany\n"+
-				"11.  \n"+
+				"11.  JPA SELECT avec JOINTURE \n"+
 				"\t\t FIN .................... 0\n\n"+
 				"\t\t             Choix : ............ ";
 		return ES.saisie(s, 0, 11);

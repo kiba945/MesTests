@@ -1,10 +1,5 @@
 package org.afpa59.patrice.donnees;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -86,56 +81,56 @@ public class Article extends Entite{
 	public String toString(){return (super.toString()+" Designation: "+designation+
 			" Prix: "+prix);}
 
-	/**
-	Ecrit les données dans un PrintWriter
-	@param out Le PrintWriter
-	 */
-	public void writeData(PrintWriter out) throws IOException{
-		out.println(super.getCode() + "|"
-				+ designation + "|"
-				+ prix);
-	}
-
-
-	/**
-	Lit les données depuis un lecteur bufférisé
-	@param in Le lecteur bufférisé
-	 */
-	public void readData(BufferedReader in) throws IOException{
-		String s = in.readLine();
-		StringTokenizer t = new StringTokenizer(s, "|");
-		setCode(Integer.parseInt(t.nextToken()));
-		designation = t.nextToken();
-		prix = Float.parseFloat(t.nextToken());
-	}	
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((designation == null) ? 0 : designation.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Article other = (Article) obj;
-		if (designation == null) {
-			if (other.designation != null)
-				return false;
-		} else if (!designation.equals(other.designation))
-			return false;
-		return true;
-	}
-
+//	/**
+//	Ecrit les données dans un PrintWriter
+//	@param out Le PrintWriter
+//	 */
+//	public void writeData(PrintWriter out) throws IOException{
+//		out.println(super.getCode() + "|"
+//				+ designation + "|"
+//				+ prix);
+//	}
+//
+//
+//	/**
+//	Lit les données depuis un lecteur bufférisé
+//	@param in Le lecteur bufférisé
+//	 */
+//	public void readData(BufferedReader in) throws IOException{
+//		String s = in.readLine();
+//		StringTokenizer t = new StringTokenizer(s, "|");
+//		setCode(Integer.parseInt(t.nextToken()));
+//		designation = t.nextToken();
+//		prix = Float.parseFloat(t.nextToken());
+//	}	
+//
+//
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result
+//				+ ((designation == null) ? 0 : designation.hashCode());
+//		return result;
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Article other = (Article) obj;
+//		if (designation == null) {
+//			if (other.designation != null)
+//				return false;
+//		} else if (!designation.equals(other.designation))
+//			return false;
+//		return true;
+//	}
+//
 
 
 }

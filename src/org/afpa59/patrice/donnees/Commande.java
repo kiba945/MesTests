@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.afpa59.patrice.utils.DateUser;
 
@@ -25,10 +26,6 @@ public class Commande extends Entite{
 	@JoinColumn(name = "code_client")
 	private Client clt;
 
-	@ManyToOne	// 
-	@JoinColumn( name= "code_ligneCde")
-	private LigneDeCommande lgCde;		
-
 	private float montantCommande;	
 
 	//	@Column(name = "date_cde")
@@ -38,17 +35,18 @@ public class Commande extends Entite{
 	//	
 	//	private boolean etatFacture;
 
+	@OneToMany(mappedBy = "Cde")	
 	private List<LigneDeCommande> listeCde = new ArrayList<LigneDeCommande>();
 
 
 	public List<LigneDeCommande> getListeCde() {
 		return listeCde;
 	}
-	
+
 	public void setListeCde(List<LigneDeCommande> listeCde) {
 		this.listeCde = listeCde;
 	}
-	
+
 	public Client getClt() {
 		return clt;
 	}
@@ -79,19 +77,19 @@ public class Commande extends Entite{
 	/************************************/
 	/*		Déclaration des GETTEURS	*/
 	/************************************/
-		public String getCodeCde(){return codeCde;}
+	public String getCodeCde(){return codeCde;}
 	//	public DateUser getDateCde(){return dateCde;}
 	//	public DateUser getDateFact(){return dateFact;}
 	//	public boolean getEtatFacture(){return etatFacture;}
-	
-		public List<LigneDeCommande> getUneCommande(){return listeCde;}
+
+	public List<LigneDeCommande> getUneCommande(){return listeCde;}
 
 	/************************************/
 	/*		Déclaration des SETTEURS	*/
 	/************************************/
-		public void setCodeCde(String code){this.codeCde=code;}
+	public void setCodeCde(String code){this.codeCde=code;}
 	//	public void setDateCde(DateUser dateCde){this.dateCde=dateCde;}
-		public void setUneCommande(ArrayList<LigneDeCommande> ldc){this.listeCde=ldc;}
+	public void setUneCommande(ArrayList<LigneDeCommande> ldc){this.listeCde=ldc;}
 	//	public void setDateFact(DateUser dateFact){this.dateFact = dateFact;}
 	//	public void setEtatFacture(boolean etatFacture){this.etatFacture = etatFacture;}
 
@@ -108,36 +106,48 @@ public class Commande extends Entite{
 	//		return st;
 	//	}
 
-		@Override
-		public String toString() {
-			String st="";
-			
-			st="Commande : " + codeCde + " à : "
-			+ clt.getNom()
-			+ " "
-			+ clt.getPrenom()
-			+ " "
-			+ clt.getAdresse()
-			+ "\n"
-			+"************************************************\n"
-			+ "lg : "
-			+ lgCde + ", montantCommande=" + montantCommande
-			+ ", listeCde=" + listeCde + "]"
-			+"************************************************\n";
-			
-			return st;
-		}		
-		
-		public void ajouter(LigneDeCommande lg){listeCde.add(lg);}
-	
-		public void supprimer(LigneDeCommande lg){listeCde.remove(lg);}
-	
-		public LigneDeCommande retourner(int lg){
-			if(taille()>0){
-				return listeCde.get(lg);
-			}
-			return null;
+	@Override
+	public String toString() {
+		String st = "";
+		String lignesCde = "";
+
+		for (int i = 0; i < listeCde.size(); i++) {
+			lignesCde = lignesCde
+					+ listeCde.get(i).getArt().getCode()
+					+ " *** "
+					+ listeCde.get(i).getArt().getDesignation()
+					+ " *** "
+					+ listeCde.get(i).getQuantite()
+					+ " *** "
+					+ listeCde.get(i).getArt().getPrix()
+					+ "\n";
 		}
+
+		st="Commande : " + codeCde + " à : "
+				+ clt.getNom()
+				+ " "
+				+ clt.getPrenom()
+				+ ", "
+				+ clt.getAdresse()
+				+ "\n"
+				+ "************************************************\n"
+				+ lignesCde
+				+ "\n************************************************\n"
+				+ "                             montantCommande=" + montantCommande;
+
+		return st;
+	}		
+
+	public void ajouter(LigneDeCommande lg){listeCde.add(lg);}
+
+	public void supprimer(LigneDeCommande lg){listeCde.remove(lg);}
+
+	public LigneDeCommande retourner(int lg){
+		if(taille()>0){
+			return listeCde.get(lg);
+		}
+		return null;
+	}
 
 	public String cle() {return null;}
 

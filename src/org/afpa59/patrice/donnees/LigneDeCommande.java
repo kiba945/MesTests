@@ -1,7 +1,5 @@
 package org.afpa59.patrice.donnees;
 
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -19,9 +17,14 @@ public class LigneDeCommande extends Entite{
 	@Column(name = "quantite")
 	private int quantite;
 	
-	@ManyToOne(cascade = CascadeType.ALL)	// 
-	@JoinColumn( name= "code_article")
+	@ManyToOne	// 
+	@JoinColumn( name= "code_article")	//clé étrangére
 	private Article art;
+
+	@ManyToOne	// 
+	@JoinColumn( name= "code_commande")
+	private Commande Cde;			
+	
 	
 	/************************************/
 	/*	Déclaration des constructeurs	*/
@@ -37,7 +40,13 @@ public class LigneDeCommande extends Entite{
 		super(code);
 		this.quantite=quantite;
 	}
-	
+
+//	/*** 3ème constructeur avec des paramètres ***/
+//	public LigneDeCommande(int quantite, Article art, Commande Cde){
+//		this.quantite=quantite;
+//		this.art=art;
+//		
+//	}
 	
 	/************************************/
 	/*		Déclaration des GETTEURS	*/
@@ -49,11 +58,30 @@ public class LigneDeCommande extends Entite{
 	/************************************/
 	public void setQuantite(int quantite){this.quantite=quantite;}
 	
+	public Article getArt() {
+		return art;
+	}
+
+
+	public void setArt(Article art) {
+		this.art = art;
+	}
+
+
+	public Commande getCde() {
+		return Cde;
+	}
+
+
+	public void setCde(Commande cde) {
+		Cde = cde;
+	}	
+	
 	/************************************/
 	/*		Décalaration des méthodes	*/
 	/************************************/
 	
 	/*** Méthode toString() retourne une chaîne de caractère  ***/
-	public String toString(){return (super.toString()+" Quantité: "+quantite);}
+	public String toString(){return (super.toString()+" Quantité: "+quantite+"\n");}
 	
 }
