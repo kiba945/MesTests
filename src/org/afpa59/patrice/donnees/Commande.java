@@ -1,14 +1,13 @@
 package org.afpa59.patrice.donnees;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.ArrayList;
-import java.util.StringTokenizer;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.afpa59.patrice.utils.DateUser;
 
@@ -19,21 +18,50 @@ public class Commande extends Entite{
 	/* Déclaration des variables d'instance */
 	/****************************************/
 
-	@Column(name = "code")
+	@Column(name = "code_cde")
 	private String codeCde;
-	
-//	@Column(name = "date_cde")
-//	private DateUser dateCde = new DateUser();
-	
-//	private DateUser dateFact;
-//	
-//	private boolean etatFacture;
-//	
-//
-//	
-//
-//	private ArrayList<LigneDeCommande> listeCde = new ArrayList<LigneDeCommande>();
 
+	@ManyToOne	// Plusieurs commandes pour un client
+	@JoinColumn(name = "code_client")
+	private Client clt;
+
+	@ManyToOne	// 
+	@JoinColumn( name= "code_ligneCde")
+	private LigneDeCommande lgCde;		
+
+	private float montantCommande;	
+
+	//	@Column(name = "date_cde")
+	//	private DateUser dateCde = new DateUser();
+
+	//	private DateUser dateFact;
+	//	
+	//	private boolean etatFacture;
+
+	private List<LigneDeCommande> listeCde = new ArrayList<LigneDeCommande>();
+
+
+	public List<LigneDeCommande> getListeCde() {
+		return listeCde;
+	}
+	
+	public void setListeCde(List<LigneDeCommande> listeCde) {
+		this.listeCde = listeCde;
+	}
+	
+	public Client getClt() {
+		return clt;
+	}
+	public void setClt(Client clt) {
+		this.clt = clt;
+	}
+
+	public float getMontantCommande() {
+		return montantCommande;
+	}
+	public void setMontantCommande(float montantCommande) {
+		this.montantCommande = montantCommande;
+	}
 
 	/************************************/
 	/*	Déclaration des constructeurs	*/
@@ -42,58 +70,78 @@ public class Commande extends Entite{
 	public Commande(){}
 	/*** 2ème constructeur avec des paramètres ***/
 	public Commande(String code, DateUser dateCde, ArrayList<LigneDeCommande> Cde){
-		//		super.getCode();
+		super.getCode();
 		this.codeCde=code;
-//		this.dateCde=dateCde;
-//		this.listeCde=Cde;
+		//		this.dateCde=dateCde;
+		//		this.listeCde=Cde;
 	}
 
 	/************************************/
 	/*		Déclaration des GETTEURS	*/
 	/************************************/
-	public String getCodeCde(){return codeCde;}
-//	public DateUser getDateCde(){return dateCde;}
-//	public DateUser getDateFact(){return dateFact;}
-//	public boolean getEtatFacture(){return etatFacture;}
-//
-//	public ArrayList<LigneDeCommande> getUneCommande(){return listeCde;}
+		public String getCodeCde(){return codeCde;}
+	//	public DateUser getDateCde(){return dateCde;}
+	//	public DateUser getDateFact(){return dateFact;}
+	//	public boolean getEtatFacture(){return etatFacture;}
+	
+		public List<LigneDeCommande> getUneCommande(){return listeCde;}
 
 	/************************************/
 	/*		Déclaration des SETTEURS	*/
 	/************************************/
-	public void setCodeCde(String code){this.codeCde=code;}
-//	public void setDateCde(DateUser dateCde){this.dateCde=dateCde;}
-//	public void setUneCommande(ArrayList<LigneDeCommande> ldc){this.listeCde=ldc;}
-//	public void setDateFact(DateUser dateFact){this.dateFact = dateFact;}
-//	public void setEtatFacture(boolean etatFacture){this.etatFacture = etatFacture;}
+		public void setCodeCde(String code){this.codeCde=code;}
+	//	public void setDateCde(DateUser dateCde){this.dateCde=dateCde;}
+		public void setUneCommande(ArrayList<LigneDeCommande> ldc){this.listeCde=ldc;}
+	//	public void setDateFact(DateUser dateFact){this.dateFact = dateFact;}
+	//	public void setEtatFacture(boolean etatFacture){this.etatFacture = etatFacture;}
 
 
 	/************************************/
 	/*		Décalaration des méthodes	*/
 	/************************************/
 	/*** Méthode toString() retourne une chaîne de caractère  ***/
-	public String toString(){
-		String st = new String();
-//		for(int i=0;i<taille();i++){
-//			st = st + listeCde.get(i).toString()+ "**\n";
-//		}
-		return st;
-	}
+	//	public String toString(){
+	//		String st = new String();
+	//		for(int i=0;i<taille();i++){
+	//			st = st + listeCde.get(i).toString()+ "**\n";
+	//		}
+	//		return st;
+	//	}
 
-//	public void ajouter(LigneDeCommande lg){listeCde.add(lg);}
-//
-//	public void supprimer(LigneDeCommande lg){listeCde.remove(lg);}
-//
-//	public LigneDeCommande retourner(int lg){
-//		if(taille()>0){
-//			return listeCde.get(lg);
-//		}
-//		return null;
-//	}
+		@Override
+		public String toString() {
+			String st="";
+			
+			st="Commande : " + codeCde + " à : "
+			+ clt.getNom()
+			+ " "
+			+ clt.getPrenom()
+			+ " "
+			+ clt.getAdresse()
+			+ "\n"
+			+"************************************************\n"
+			+ "lg : "
+			+ lgCde + ", montantCommande=" + montantCommande
+			+ ", listeCde=" + listeCde + "]"
+			+"************************************************\n";
+			
+			return st;
+		}		
+		
+		public void ajouter(LigneDeCommande lg){listeCde.add(lg);}
+	
+		public void supprimer(LigneDeCommande lg){listeCde.remove(lg);}
+	
+		public LigneDeCommande retourner(int lg){
+			if(taille()>0){
+				return listeCde.get(lg);
+			}
+			return null;
+		}
 
 	public String cle() {return null;}
 
 	/*** Méthode taille() retourne la taille de la liste des commandes  ***/
-//	public int taille(){return listeCde.size();}
+	public int taille(){return listeCde.size();}
 
 }

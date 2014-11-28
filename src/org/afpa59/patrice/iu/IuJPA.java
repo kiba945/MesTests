@@ -1,7 +1,5 @@
 package org.afpa59.patrice.iu;
 
-
-import org.afpa59.patrice.donnees.Article;
 import org.afpa59.patrice.services.MonJPA01;
 import org.afpa59.patrice.services.MonJPA02;
 import org.afpa59.patrice.services.MonJPA03;
@@ -50,8 +48,8 @@ public class IuJPA extends IuBase{
 				"06.  JPA instruction namedQuerynativeSQL() ... à venir ... \n"+
 				"07.  JPA SELECT \n"+
 				"08.  JPA @ManyToOne\n"+
-				"09.  \n"+
-				"10. \n"+
+				"09.  JPA @OneToMany\n"+
+				"10.  JPA @ManyToMany\n"+
 				"11.  \n"+
 				"\t\t FIN .................... 0\n\n"+
 				"\t\t             Choix : ............ ";

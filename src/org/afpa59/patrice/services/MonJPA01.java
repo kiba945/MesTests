@@ -6,13 +6,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import org.afpa59.patrice.donnees.Article;
+import org.afpa59.patrice.donnees.Client;
 import org.afpa59.patrice.utils.ES;
 
 public class MonJPA01 {
 	
 	public void test() {
 		// TODO Auto-generated method stub
-		
+		String elt = "";
 		
 	    // Injection du manager, qui s'occupe de la connexion avec la BDD
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Test_persistence");
@@ -23,25 +24,51 @@ public class MonJPA01 {
 		
 		et.begin();
 		
-		Article article = creer();	
+		elt = ES.saisie("Quel entite? (art,clt,cde) ");
+		
+		switch (elt) {
+		case "art":
+			Article article = creerArticle();	
+			em.persist(article);
 			
-		em.persist(article);
-	
-		em.flush();	//Envoi sur la Base de donnée
-		et.commit();	//Validation de l'envoi
+			em.flush();	//Envoi sur la Base de donnée
+			et.commit();	//Validation de l'envoi
+			
+			ES.affiche("     ****** Votre Article ******\n"
+			+ article.toString()
+			+ "\n     ****** a bien été crée ******");
+			
+			break;
+
+		case "clt":
+			Client clt = creerClient();	
+			em.persist(clt);	
+			
+			em.flush();	//Envoi sur la Base de donnée
+			et.commit();	//Validation de l'envoi
+			
+			ES.affiche("     ****** Votre client ******\n"
+			+ clt.toString()
+			+ "\n     ****** a bien été crée ******");
+			
+			break;
+			
+		case "cde":
+			
+			break;
+		}
 		
+
 		em.close();
-		
-		ES.affiche("     ****** Votre Article ******\n"
-		+ article.toString()
-		+ "\n     ****** a bien été crée ******");
+		emf.close();
+
 		
 	}
 
 	/**
 	 * @return
 	 */
-	private Article creer() {
+	private Article creerArticle() {
 		
 //		int code = ES.saisie("Votre code Article:", 1, Integer.MAX_VALUE);
 		String designation = ES.saisie("Votre désignation Article:");
@@ -56,5 +83,25 @@ public class MonJPA01 {
 		article.setPrix(prix);
 		
 		return article;
+	}
+	
+	/**
+	 * @return
+	 */
+	private Client creerClient() {
+		
+		String nom = ES.saisie("Nom: ");
+		String prenom = ES.saisie("Prenom: ");
+		String adresse = ES.saisie("Adresse: ");
+
+		Client clt;
+		
+		clt = new Client();
+		
+		clt.setNom(nom);
+		clt.setPrenom(prenom);
+		clt.setAdresse(adresse);
+		
+		return clt;
 	}
 }

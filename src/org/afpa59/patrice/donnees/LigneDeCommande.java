@@ -1,9 +1,11 @@
 package org.afpa59.patrice.donnees;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -17,9 +19,9 @@ public class LigneDeCommande extends Entite{
 	@Column(name = "quantite")
 	private int quantite;
 	
-	@ManyToMany
+	@ManyToOne(cascade = CascadeType.ALL)	// 
 	@JoinColumn( name= "code_article")
-	private String codeArticle;
+	private Article art;
 	
 	/************************************/
 	/*	Déclaration des constructeurs	*/

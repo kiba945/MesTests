@@ -1,11 +1,11 @@
 package org.afpa59.patrice.donnees;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.StringTokenizer;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +30,9 @@ public class Client extends Entite{
 	
 	@Column(name = "adresse")
 	private String adresse;
+	
+	@OneToMany(mappedBy = "clt")	//un client peut avoir plusieurs cdes	
+	private List<Commande> commandes = new ArrayList<Commande>();
 	
 	/************************************/
 	/*	Déclaration des constructeurs	*/
@@ -67,31 +70,31 @@ public class Client extends Entite{
 	
 	
 	
-	/**
-	* Méthode qui écrit une ligne client dans un PrintWriter
-	* 
-	* @param out du type PrintWriter
-	*/
-	public void writeData(PrintWriter out) throws IOException{
-		super.writeData(out);
-		out.println(nom + "|" + prenom + "|" + adresse);		
-	}
-
-
-	
-	/**
-	* Méthode qui lit une ligne du fichier qui correspond à une ligne Client
-	* 
-	* @param ligClient du type String
-	*/
-	public void readData(String ligClient) throws IOException{
-		
-		StringTokenizer t = new StringTokenizer(ligClient, "|");
-		int code = Integer.parseInt(t.nextToken());
-		
-		super.setCode(code);
-		nom = t.nextToken();
-		prenom = t.nextToken();
-		adresse = t.nextToken();
-	}	
+//	/**
+//	* Méthode qui écrit une ligne client dans un PrintWriter
+//	* 
+//	* @param out du type PrintWriter
+//	*/
+//	public void writeData(PrintWriter out) throws IOException{
+//		super.writeData(out);
+//		out.println(nom + "|" + prenom + "|" + adresse);		
+//	}
+//
+//
+//	
+//	/**
+//	* Méthode qui lit une ligne du fichier qui correspond à une ligne Client
+//	* 
+//	* @param ligClient du type String
+//	*/
+//	public void readData(String ligClient) throws IOException{
+//		
+//		StringTokenizer t = new StringTokenizer(ligClient, "|");
+//		int code = Integer.parseInt(t.nextToken());
+//		
+//		super.setCode(code);
+//		nom = t.nextToken();
+//		prenom = t.nextToken();
+//		adresse = t.nextToken();
+//	}	
 }
