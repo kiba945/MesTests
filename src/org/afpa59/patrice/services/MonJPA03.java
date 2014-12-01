@@ -6,14 +6,16 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import org.afpa59.patrice.donnees.Article;
+import org.afpa59.patrice.donnees.Client;
+import org.afpa59.patrice.donnees.Commande;
 import org.afpa59.patrice.utils.ES;
 
 public class MonJPA03 {
 
 	public void test() {
-		Article article;
+		String elt = "";
 		int code;
-		
+
 		// Injection du manager, qui s'occupe de la connexion avec la BDD
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Test_persistence");
 
@@ -23,38 +25,133 @@ public class MonJPA03 {
 
 		et.begin();
 
+		elt = ES.saisie("*** SUPPRESSION en JPA***\n"
+				+ "Quel entite? (art,clt,cde) ");
 
-		code = ES.saisie("*** SUPPRESSION ***\n"
-				+ "Votre code Article:", 1, Integer.MAX_VALUE);
+		switch (elt) {
+		case "art":
+			code = ES.saisie("*** SUPPRESSION ***\n"
+					+ "Votre code Article:", 1, Integer.MAX_VALUE);
 
-		article = em.find(Article.class, code);
+			Article article;
 
-		if (article == null) {
-			ES.affiche("Article code " + code + " non trouvé");
+			article = em.find(Article.class, code);
 
-		} else {
-		/**********************************************************/
-			String rep = ES.saisie("Voulez-vous supprimer l'article? (O/N)");
+			if (article == null) {
+				ES.affiche("Article code " + code + " non trouvé");
 
-			if (rep.equals("o") || rep.equals("O")){
-				
-				em.remove(article);	
-				
-				ES.affiche("     ****** Votre Article ******\n"
-						+ article.getCode()
-						+ "\n     ****** a bien été supprimé ******");
+			} else {
+				/**********************************************************/
+				String rep = ES.saisie("Voulez-vous supprimer l'article : \n"
+						+ article.toString()
+						+ " ? (O/N)");
 
-				em.flush();	//Envoi sur la Base de donnée
-				et.commit();	//Validation de l'envoi
-				
+				if (rep.equals("o") || rep.equals("O")){
+
+					try {
+
+						em.remove(article);	
+
+						em.flush();	//Envoi sur la Base de donnée
+						et.commit();	//Validation de l'envoi
+						
+						ES.affiche("     ****** Votre Article ******\n"
+								+ article.getCode()
+								+ "\n     ****** a bien été supprimé ******");
+
+
+					} catch (Exception e) {
+						// TODO: handle exception
+
+						System.out.println("Olala... Vous n'avez pas le droit d'effacer\n"
+								+ article.toString());
+					}
+
+
+				}
+				/**********************************************************/
+
 			}
-		/**********************************************************/
 
+			break;
+
+		case "clt":
+			code = ES.saisie("Votre code Client:", 1, Integer.MAX_VALUE);	
+
+			Client client;
+
+			client = em.find(Client.class,code);
+
+			if (client == null){
+				ES.affiche("Client code " + code + " non trouvé");
+			}else{
+				/**********************************************************/
+				String rep = ES.saisie("Voulez-vous supprimer le client : \n"
+						+ client.toString()
+						+ " ? (O/N)");
+
+				if (rep.equals("o") || rep.equals("O")){
+					try {
+
+					} catch (Exception e) {
+						// TODO: handle exception
+						System.out.println("Olala... Vous n'avez pas le droit d'effacer :\n"
+						+ client.toString());
+					}
+					
+					em.remove(client);	
+
+					em.flush();	//Envoi sur la Base de donnée
+					et.commit();	//Validation de l'envoi
+					
+					ES.affiche("     ****** Votre Article ******\n"
+							+ client.getCode()
+							+ "\n     ****** a bien été supprimé ******");
+
+				}
+				/**********************************************************/
+			}
+
+			break;	
+
+		case "cde":
+
+			code = ES.saisie("Votre code Commande:", 1, Integer.MAX_VALUE);	
+
+			Commande cde;
+
+			cde = em.find(Commande.class,code);
+
+			if (cde == null){
+				ES.affiche("Commande code " + code + " non trouvé");
+			}else{
+				/**********************************************************/
+				String rep = ES.saisie("Voulez-vous supprimer la commande : \n"
+						+ cde.toString()
+						+ " ? (O/N)");
+
+				if (rep.equals("o") || rep.equals("O")){
+
+					em.remove(cde);	
+
+					em.flush();	//Envoi sur la Base de donnée
+					et.commit();	//Validation de l'envoi
+					
+					ES.affiche("     ****** Votre Article ******\n"
+							+ cde.getCode()
+							+ "\n     ****** a bien été supprimé ******");
+
+				}
+				/**********************************************************/
+			}
+
+			break;
 		}
 
 		em.close();
+		emf.close();
 
 	}
-
-
 }
+
+

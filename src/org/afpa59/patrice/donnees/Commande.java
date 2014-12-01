@@ -18,27 +18,28 @@ public class Commande extends Entite{
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-
 	@Column(name = "code_cde")
 	private String codeCde;
 
+//		@Column(name = "date_cde")
+//		private DateUser dateCde = new DateUser();
+
+	//	private DateUser dateFact;
+	//	
+	//	private boolean etatFacture;	
+	
 	@ManyToOne	// Plusieurs commandes pour un client
 	@JoinColumn(name = "code_client")
 	private Client clt;
 
-	private float montantCommande;	
-
-	//	@Column(name = "date_cde")
-	//	private DateUser dateCde = new DateUser();
-
-	//	private DateUser dateFact;
-	//	
-	//	private boolean etatFacture;
 
 	@OneToMany(mappedBy = "Cde")	
 	private List<LigneDeCommande> listeCde = new ArrayList<LigneDeCommande>();
 
-
+	private float montantCommande;
+	
+	
+	
 	public List<LigneDeCommande> getListeCde() {
 		return listeCde;
 	}

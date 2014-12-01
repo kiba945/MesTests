@@ -13,7 +13,7 @@ public class LigneDeCommande extends Entite{
 	
 	/****************************************/
 	/* Déclaration des variables d'instance */
-	/****************************************/
+	/****************************************/	
 	@Column(name = "quantite")
 	private int quantite;
 	

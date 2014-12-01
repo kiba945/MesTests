@@ -16,12 +16,6 @@ public class Client extends Entite{
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-//	@Id
-//	@GeneratedValue( strategy = GenerationType.IDENTITY)	//Auto incremente l'ID dans la table
-//	@Column(name = "code")
-//	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
-//	
-
 	@Column(name = "nom")
 	private String nom;
 	
@@ -67,34 +61,4 @@ public class Client extends Entite{
 	/*** Méthode toString() retourne une chaîne de caractère  ***/
 	public String toString(){return (super.toString()+" Nom: "+nom+
 			" Prénom: "+prenom+" Adresse: "+adresse);}	
-	
-	
-	
-//	/**
-//	* Méthode qui écrit une ligne client dans un PrintWriter
-//	* 
-//	* @param out du type PrintWriter
-//	*/
-//	public void writeData(PrintWriter out) throws IOException{
-//		super.writeData(out);
-//		out.println(nom + "|" + prenom + "|" + adresse);		
-//	}
-//
-//
-//	
-//	/**
-//	* Méthode qui lit une ligne du fichier qui correspond à une ligne Client
-//	* 
-//	* @param ligClient du type String
-//	*/
-//	public void readData(String ligClient) throws IOException{
-//		
-//		StringTokenizer t = new StringTokenizer(ligClient, "|");
-//		int code = Integer.parseInt(t.nextToken());
-//		
-//		super.setCode(code);
-//		nom = t.nextToken();
-//		prenom = t.nextToken();
-//		adresse = t.nextToken();
-//	}	
 }

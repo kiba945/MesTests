@@ -1,27 +1,21 @@
 package org.afpa59.patrice.donnees;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 
 
 //@Entity
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@MappedSuperclass
+@MappedSuperclass	// Annotation pour l'héritage
 public class Entite {
 	
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
 	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY)
+	@GeneratedValue( strategy = GenerationType.IDENTITY) //Auto incremente l'ID
 	private int code;
 	
 	/************************************/
@@ -49,9 +43,4 @@ public class Entite {
 	/************************************/
 	/*** Méthode toString() retourne une chaîne de caractère  ***/
 	public String toString(){return ("Code: "+code);}
-	
-	public void writeData(PrintWriter out) throws IOException {
-		// TODO Auto-generated method stub
-		
-	}	
 }

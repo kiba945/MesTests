@@ -9,6 +9,7 @@ import org.afpa59.patrice.donnees.Article;
 import org.afpa59.patrice.donnees.Client;
 import org.afpa59.patrice.donnees.Commande;
 import org.afpa59.patrice.donnees.LigneDeCommande;
+import org.afpa59.patrice.utils.DateUser;
 import org.afpa59.patrice.utils.ES;
 
 public class MonJPA08 {
@@ -71,9 +72,15 @@ public class MonJPA08 {
 		/**************************************************/
 		
 		/****************COMMANDE***************************/	
+		int numOrd;
+		String numCde;
 		Float totalCommande;
+		DateUser dateJ = new DateUser();
 		
-		cde.setCodeCde("ZTEZR1565");
+		numOrd= cde.getCode()+1;
+		numCde = ""+dateJ.getAnnee()+dateJ.getMois()+dateJ.getJour()+numOrd;
+		
+		cde.setCodeCde(numCde);
 		
 		cde.setClt(clt);
 		
@@ -95,10 +102,7 @@ public class MonJPA08 {
 		em.close();
 		emf.close();
 
-		ES.affiche("     ****** Votre Client ******\n"
-				+ clt.toString()
-				+ "\n     ****** a bien été crée ******"
-				+ "\n\n    ****** Votre Commande ****\n"
+		ES.affiche("              ****** Votre Commande ****\n"
 				+ cde.toString()
 				+ "");
 

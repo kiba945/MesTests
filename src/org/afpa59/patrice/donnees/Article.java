@@ -12,9 +12,6 @@ public class Article extends Entite{
 	/****************************************/
 	/* Déclaration des variables d'instance */
 	/****************************************/
-//	@Id
-//	@GeneratedValue( strategy = GenerationType.IDENTITY)	//Auto incremente l'ID dans la table
-//	private int code; //champ inactif pour eclipselink qui exige @Id sur le champ et refuse sur les getCode()
 
 	@Column( name = "designation")
 	private String designation;
@@ -41,7 +38,7 @@ public class Article extends Entite{
 		this.designation=designation;
 		this.prix=prix;
 	}
-	
+
 	/** 3ème constructeur avec des paramètres
 	 * 
 	 * @param String designation
@@ -51,15 +48,16 @@ public class Article extends Entite{
 		this.designation=designation;
 		this.prix=prix;
 	}
-	
+
 
 	/************************************/
 	/*		Déclaration des GETTEURS	*/
-	/************************************/
+	/************************************/	
 	/**
 	 * @return String designation
 	 */
 	public String getDesignation(){return designation;}
+	
 	/**
 	 * @return Float prix
 	 */
@@ -70,9 +68,15 @@ public class Article extends Entite{
 	/************************************/
 	/**
 	 * @param designation
-	 */
+	 */	
 	public void setDesignation(String designation){this.designation=designation;}	
+	
+	/**
+	 * @param prix
+	 */
 	public void setPrix(float prix){this.prix=prix;}	
+	
+	
 
 	/************************************/
 	/*		Déclaration des méthodes	*/
@@ -81,56 +85,32 @@ public class Article extends Entite{
 	public String toString(){return (super.toString()+" Designation: "+designation+
 			" Prix: "+prix);}
 
-//	/**
-//	Ecrit les données dans un PrintWriter
-//	@param out Le PrintWriter
-//	 */
-//	public void writeData(PrintWriter out) throws IOException{
-//		out.println(super.getCode() + "|"
-//				+ designation + "|"
-//				+ prix);
-//	}
-//
-//
-//	/**
-//	Lit les données depuis un lecteur bufférisé
-//	@param in Le lecteur bufférisé
-//	 */
-//	public void readData(BufferedReader in) throws IOException{
-//		String s = in.readLine();
-//		StringTokenizer t = new StringTokenizer(s, "|");
-//		setCode(Integer.parseInt(t.nextToken()));
-//		designation = t.nextToken();
-//		prix = Float.parseFloat(t.nextToken());
-//	}	
-//
-//
-//	@Override
-//	public int hashCode() {
-//		final int prime = 31;
-//		int result = 1;
-//		result = prime * result
-//				+ ((designation == null) ? 0 : designation.hashCode());
-//		return result;
-//	}
-//
-//	@Override
-//	public boolean equals(Object obj) {
-//		if (this == obj)
-//			return true;
-//		if (obj == null)
-//			return false;
-//		if (getClass() != obj.getClass())
-//			return false;
-//		Article other = (Article) obj;
-//		if (designation == null) {
-//			if (other.designation != null)
-//				return false;
-//		} else if (!designation.equals(other.designation))
-//			return false;
-//		return true;
-//	}
-//
+	//	@Override
+	//	public int hashCode() {
+	//		final int prime = 31;
+	//		int result = 1;
+	//		result = prime * result
+	//				+ ((designation == null) ? 0 : designation.hashCode());
+	//		return result;
+	//	}
+	//
+	//	@Override
+	//	public boolean equals(Object obj) {
+	//		if (this == obj)
+	//			return true;
+	//		if (obj == null)
+	//			return false;
+	//		if (getClass() != obj.getClass())
+	//			return false;
+	//		Article other = (Article) obj;
+	//		if (designation == null) {
+	//			if (other.designation != null)
+	//				return false;
+	//		} else if (!designation.equals(other.designation))
+	//			return false;
+	//		return true;
+	//	}
+	//
 
 
 }

@@ -8,14 +8,14 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
 
-public class Employee{
+public class xxEmployee{
 	
 	private String name;
 	private double salary;
 	private Date hireDay;
 	
-	public Employee() {}
-	public Employee(String n, double s, int year, int month, int day){
+	public xxEmployee() {}
+	public xxEmployee(String n, double s, int year, int month, int day){
 		name = n;
 		salary = s;
 		GregorianCalendar calendar
