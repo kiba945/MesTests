@@ -46,14 +46,14 @@ public class IuJPA extends IuBase{
 				"01.  JPA instuction persist(Object) \n"+
 				"02.  JPA instruction merge(Object) \n"+
 				"03.  JPA instruction remove(Object) \n"+
-				"04.  JPA instrution find(Article.class, code) \n"+
+				"04.  JPA instrution find(Article.class, code) sur TABLE Article\n"+
 				"05.  JPA instruction JPQL(SQL) ... à venir ... \n"+
 				"06.  JPA instruction namedQuerynativeSQL() ... à venir ... \n"+
-				"07.  JPA SELECT \n"+
+				"07.  JPA SELECT sur TABLE Article \n"+
 				"08.  JPA @ManyToOne\n"+
 				"09.  JPA @OneToMany\n"+
 				"10.  JPA @ManyToMany\n"+
-				"11.  JPA SELECT avec JOINTURE \n"+
+				"11.  JPA SELECT avec JOINTURE ... à venir ... \n"+
 				"\t\t FIN .................... 0\n\n"+
 				"\t\t             Choix : ............ ";
 		return ES.saisie(s, 0, 11);

@@ -23,7 +23,7 @@ public class LigneDeCommande extends Entite{
 
 	@ManyToOne	// 
 	@JoinColumn( name= "code_commande")
-	private Commande Cde;			
+	private Commande cde;			
 	
 	
 	/************************************/
@@ -69,12 +69,12 @@ public class LigneDeCommande extends Entite{
 
 
 	public Commande getCde() {
-		return Cde;
+		return cde;
 	}
 
 
 	public void setCde(Commande cde) {
-		Cde = cde;
+		cde = cde;
 	}	
 	
 	/************************************/

@@ -33,9 +33,10 @@ public class Commande extends Entite{
 	private Client clt;
 
 
-	@OneToMany(mappedBy = "Cde")	
+	@OneToMany(mappedBy = "cde")	
 	private List<LigneDeCommande> listeCde = new ArrayList<LigneDeCommande>();
 
+	@Column(name = "montantcommande")
 	private float montantCommande;
 	
 	
