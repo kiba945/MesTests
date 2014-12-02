@@ -54,7 +54,7 @@
 			</basic>
 
 			<one-to-many name="commandes" mapped-by="clt">
-				<map-key-join-column name="code_client"/>
+				<join-column name="code_client"/>
 			</one-to-many>
 
 		</attributes>
@@ -69,8 +69,14 @@
 				<column name="code_cde" />
 			</basic>
 			
-			<many-to-one name="clt" /> 
-
+			<basic name="dateCde">
+<!-- 				<temporal>DATE</temporal> -->
+				<column name="date_cde" />
+			</basic>			
+			
+			<many-to-one name="clt"> 
+				<join-column name="code_client"/>
+			</many-to-one>
 			
 			<one-to-many name="listeCde" mapped-by="cde">
 				<join-column name="code_commande"/>
@@ -93,11 +99,11 @@
 			</basic>
 
 			<many-to-one name="art">
-<!-- 				<column name="code_article" /> -->
+				<join-column name="code_article"/>
 			</many-to-one>
 
 			<many-to-one name="cde">
-<!-- 				<column name="code_commande" /> -->
+				<join-column name="code_commande"/>
 			</many-to-one>
 
 		</attributes>

@@ -77,8 +77,13 @@ public class MonJPA08 {
 		Float totalCommande;
 		DateUser dateJ = new DateUser();
 		
+		
 		numOrd= cde.getCode()+1;
 		numCde = ""+dateJ.getAnnee()+dateJ.getMois()+dateJ.getJour()+numOrd;
+		
+		ES.affiche("" + dateJ);
+		
+		cde.setDateCde(dateJ);
 		
 		cde.setCodeCde(numCde);
 		
@@ -106,28 +111,6 @@ public class MonJPA08 {
 				+ cde.toString()
 				+ "");
 
-	}
-
-	private Client creer() {
-		// TODO Auto-generated method stub
-		String nom;
-		String prenom;
-		String adresse;
-
-		Client clt;
-
-		clt = new Client();
-
-		nom = ES.saisie("Nom: ");
-		prenom = ES.saisie("Prenom: ");
-		adresse = ES.saisie("adresse: ");
-
-		clt.setNom(nom);
-		clt.setPrenom(prenom);
-		clt.setAdresse(adresse);
-
-
-		return clt;
 	}
 
 }

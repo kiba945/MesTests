@@ -1,7 +1,13 @@
 package org.afpa59.patrice.utils;
 
-public class DateUser {
+import java.io.Serializable;
+
+public class DateUser implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int jour;
 	private int mois;
 	private int annee;

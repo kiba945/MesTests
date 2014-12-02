@@ -74,7 +74,7 @@ public class LigneDeCommande extends Entite{
 
 
 	public void setCde(Commande cde) {
-		cde = cde;
+		this.cde = cde;
 	}	
 	
 	/************************************/

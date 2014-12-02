@@ -1,14 +1,20 @@
 package org.afpa59.patrice.donnees;
 
 
+import static javax.persistence.EnumType.STRING;
+import static javax.persistence.TemporalType.DATE;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 import org.afpa59.patrice.utils.DateUser;
 
@@ -21,13 +27,11 @@ public class Commande extends Entite{
 	@Column(name = "code_cde")
 	private String codeCde;
 
-//		@Column(name = "date_cde")
-//		private DateUser dateCde = new DateUser();
+	@Column(name = "date_cde")
+//	@Temporal(DATE)
+	@Enumerated(STRING)
+	private DateUser dateCde = new DateUser();
 
-	//	private DateUser dateFact;
-	//	
-	//	private boolean etatFacture;	
-	
 	@ManyToOne	// Plusieurs commandes pour un client
 	@JoinColumn(name = "code_client")
 	private Client clt;
@@ -38,30 +42,8 @@ public class Commande extends Entite{
 
 	@Column(name = "montantcommande")
 	private float montantCommande;
-	
-	
-	
-	public List<LigneDeCommande> getListeCde() {
-		return listeCde;
-	}
 
-	public void setListeCde(List<LigneDeCommande> listeCde) {
-		this.listeCde = listeCde;
-	}
 
-	public Client getClt() {
-		return clt;
-	}
-	public void setClt(Client clt) {
-		this.clt = clt;
-	}
-
-	public float getMontantCommande() {
-		return montantCommande;
-	}
-	public void setMontantCommande(float montantCommande) {
-		this.montantCommande = montantCommande;
-	}
 
 	/************************************/
 	/*	Déclaration des constructeurs	*/
@@ -80,34 +62,28 @@ public class Commande extends Entite{
 	/*		Déclaration des GETTEURS	*/
 	/************************************/
 	public String getCodeCde(){return codeCde;}
-	//	public DateUser getDateCde(){return dateCde;}
-	//	public DateUser getDateFact(){return dateFact;}
-	//	public boolean getEtatFacture(){return etatFacture;}
+	public DateUser getDateCde(){return dateCde;}
+	public Client getClt() {return clt;}	
+//	public List<LigneDeCommande> getUneCommande(){return listeCde;}
+	public List<LigneDeCommande> getListeCde() {return listeCde;}
+	public float getMontantCommande() {return montantCommande;}	
 
-	public List<LigneDeCommande> getUneCommande(){return listeCde;}
-
+	
 	/************************************/
 	/*		Déclaration des SETTEURS	*/
 	/************************************/
 	public void setCodeCde(String code){this.codeCde=code;}
-	//	public void setDateCde(DateUser dateCde){this.dateCde=dateCde;}
-	public void setUneCommande(ArrayList<LigneDeCommande> ldc){this.listeCde=ldc;}
-	//	public void setDateFact(DateUser dateFact){this.dateFact = dateFact;}
-	//	public void setEtatFacture(boolean etatFacture){this.etatFacture = etatFacture;}
+	public void setDateCde(DateUser dateCde){this.dateCde=dateCde;}
+	public void setClt(Client clt) {this.clt = clt;}
+//	public void setUneCommande(ArrayList<LigneDeCommande> ldc){this.listeCde=ldc;}	
+	public void setListeCde(List<LigneDeCommande> listeCde) {this.listeCde = listeCde;}	
+	public void setMontantCommande(float montantCommande) {	this.montantCommande = montantCommande;}		
 
 
 	/************************************/
 	/*		Décalaration des méthodes	*/
 	/************************************/
 	/*** Méthode toString() retourne une chaîne de caractère  ***/
-	//	public String toString(){
-	//		String st = new String();
-	//		for(int i=0;i<taille();i++){
-	//			st = st + listeCde.get(i).toString()+ "**\n";
-	//		}
-	//		return st;
-	//	}
-
 	@Override
 	public String toString() {
 		String st = "";
