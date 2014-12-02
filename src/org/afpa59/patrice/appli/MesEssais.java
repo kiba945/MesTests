@@ -1,11 +1,11 @@
 package org.afpa59.patrice.appli;
 
 import org.afpa59.patrice.iu.IuClasses;
-import org.afpa59.patrice.iu.IuJDBC;
-import org.afpa59.patrice.iu.IuJPA;
 import org.afpa59.patrice.iu.IuJFrame;
 import org.afpa59.patrice.iu.IuServlet;
 import org.afpa59.patrice.iu.IuStream;
+import org.afpa59.patrice.iu.jdbc.IuJDBC;
+import org.afpa59.patrice.iu.jpa.IuJPA;
 import org.afpa59.patrice.utils.ES;
 
 
