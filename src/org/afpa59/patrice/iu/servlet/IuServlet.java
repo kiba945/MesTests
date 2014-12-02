@@ -1,11 +1,10 @@
-package org.afpa59.patrice.iu;
 
-import org.afpa59.patrice.iu.IuBase;
-import org.afpa59.patrice.services.MonJDBC01;
-import org.afpa59.patrice.services.MonJDBC02;
+
+import org.afpa59.patrice.services.MonServlet01;
+import org.afpa59.patrice.services.MonServlet02;
 import org.afpa59.patrice.utils.ES;
 
-public class IuJDBC extends IuBase{
+public class IuServlet {
 
 	/*** Méthode menuGeneral qui renvoie le choix du menu  ***/
 	public static void menuGeneral(){
@@ -14,8 +13,8 @@ public class IuJDBC extends IuBase{
 		do{
 			rep = choix();
 			switch(rep){
-			case 1:  new MonJDBC01().test(); break;
-			case 2:  new MonJDBC02().test(); break;
+			case 1:  new MonServlet01().test(); break;
+			case 2:  new MonServlet02().test(); break;
 			case 3:  break;
 			case 4:  break;
 			case 5:  break;
@@ -35,11 +34,11 @@ public class IuJDBC extends IuBase{
 	 * et retourne un entier qui correspondant au choix ***/
 	 static int choix(){
 		String s = "\n\t\t\t *** MES JDBC *** \n\n"+
-				"01. MYSQL mon SELECT Table Article \n"+
-				"02. MYSQL mon INSERT Table Article \n"+
-				"03. MYSQL mon UPDATE Table Article \n"+
-				"04. MYSQL mon DELETE Table Article \n"+
-				"05. MYSQL mon CREATE TABLE Table Article \n"+
+				"01. Test Servlet BONJOUR \n"+
+				"02. Test Servlet  \n"+
+				"03. Test Servlet \n"+
+				"04. Test Servlet \n"+
+				"05. Test Servlet \n"+
 				"06.  \n"+
 				"07.  \n"+
 				"08.  \n"+

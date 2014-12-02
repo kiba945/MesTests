@@ -1,10 +1,11 @@
-package org.afpa59.patrice.iu;
+package org.afpa59.patrice.iu.jdbc;
 
+import org.afpa59.patrice.iu.IuBase;
 import org.afpa59.patrice.services.MonJDBC01;
 import org.afpa59.patrice.services.MonJDBC02;
 import org.afpa59.patrice.utils.ES;
 
-public class IuServlet {
+public class IuJDBC extends IuBase{
 
 	/*** Méthode menuGeneral qui renvoie le choix du menu  ***/
 	public static void menuGeneral(){
@@ -13,7 +14,7 @@ public class IuServlet {
 		do{
 			rep = choix();
 			switch(rep){
-			case 1:  new MonServle01().test(); break;
+			case 1:  new MonJDBC01().test(); break;
 			case 2:  new MonJDBC02().test(); break;
 			case 3:  break;
 			case 4:  break;

@@ -1,4 +1,4 @@
-package org.afpa59.patrice.iu;
+package org.afpa59.patrice.iu.jpa;
 
 import org.afpa59.patrice.iu.IuBase;
 import org.afpa59.patrice.services.MonJPA01;
