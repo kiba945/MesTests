@@ -5,7 +5,6 @@ import org.afpa59.patrice.iu.IuJDBC;
 import org.afpa59.patrice.iu.IuJFrame;
 import org.afpa59.patrice.iu.IuJPA;
 import org.afpa59.patrice.iu.IuStream;
-import org.afpa59.patrice.iu.servlet.IuServlet;
 import org.afpa59.patrice.utils.ES;
 
 
@@ -23,7 +22,7 @@ public class MesEssais {
 			case 3: IuStream.menuGeneral(); break;
 			case 4: IuJDBC.menuGeneral(); break;
 			case 5: IuJPA.menuGeneral(); break;
-			case 6: IuServlet.menuGeneral(); break;
+			case 6: break;
 			case 7: break;
 			case 8: break;
 			case 9: break;
@@ -44,7 +43,7 @@ public class MesEssais {
 				"\t\t 03. Test STREAM (import à faire) \n"+
 				"\t\t 04. Test JDBC  \n"+
 				"\t\t 05. Test JPA  \n"+
-				"\t\t 06. Test SERVLET  \n"+
+				"\t\t 06. Test (à venir) \n"+
 				"\t\t 07. Test (à venir) \n"+
 				"\t\t 08. Test (à venir)  \n"+
 				"\t\t 09. Test (à venir)  \n"+
